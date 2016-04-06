@@ -1,11 +1,13 @@
 {
     "name": "cwramsey/gnip-rules",
+    "version": "0.0.1",
     "authors": [
         {
             "name": "chrisramsey",
             "email": "chris@helpsocial.com"
         }
     ],
+    "license": "MIT",
     "require": {
         "php": "^7.0",
         "guzzlehttp/guzzle": "^6.2"
