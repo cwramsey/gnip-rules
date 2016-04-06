@@ -24,17 +24,23 @@ class RuleList implements \Iterator
      * Checks that a rule is in a valid format we can understand
      * [[value => "", tag => ""]]
      *
-     * @param $rules
+     * @param      $rules
+     * @param bool $require_tag
      *
      * @return bool
      */
-    public static function validateRawRuleFormat($rules) {
+    public static function validateRawRuleFormat($rules, $require_tag = true) {
         if (!is_array($rules)) {
             return false;
         }
 
+        $valid_keys = ['value'];
+        if ($require_tag) {
+            $valid_keys[] = 'tag';
+        }
+
         foreach ($rules as $rule) {
-            if (!is_array($rule) || (count(array_intersect(array_keys($rule), ['value', 'tag'])) !== 2)) {
+            if (!is_array($rule) || (count(array_intersect(array_keys($rule), $valid_keys)) !== count($valid_keys))) {
                 return false;
             }
         }

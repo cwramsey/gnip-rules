@@ -63,4 +63,26 @@ class RuleValidationTest extends PHPUnit_Framework_TestCase
                           'Asserts that an invalid rule should return false');
     }
 
+    public function testValidNoTags() {
+        $rule = [
+            [
+                'value' => 'abc'
+            ]
+        ];
+
+        $this->assertTrue(\Gnip\Models\RuleList::validateRawRuleFormat($rule, false),
+                           'Asserts that a valid rule, without tags, returns true');
+    }
+
+    public function testInvalidNoTags() {
+        $rule = [
+            [
+                'badkey' => 'abc'
+            ]
+        ];
+
+        $this->assertFalse(\Gnip\Models\RuleList::validateRawRuleFormat($rule, false),
+                           'Asserts that an invalid rule, without tags, returns false');
+    }
+
 }

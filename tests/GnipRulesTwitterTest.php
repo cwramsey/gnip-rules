@@ -23,15 +23,6 @@ class GnipRulesTest extends PHPUnit_Framework_TestCase
         parent::__construct();
     }
 
-    public function testRead()
-    {
-        $response = $this->client->read();
-        $this->assertTrue($response instanceof RuleList, 'response is instance of RuleList');
-
-        $rules = $response->getRules();
-        $this->assertTrue($rules[0] instanceof Rule, 'first rule is an instance of Rule');
-    }
-
     public function testCreate() {
         $rule_value = 'chris-test-rule';
 
@@ -53,6 +44,15 @@ class GnipRulesTest extends PHPUnit_Framework_TestCase
         }
 
         $this->assertTrue($does_contain, 'Updated rules list contains new rule');
+    }
+
+    public function testRead()
+    {
+        $response = $this->client->read();
+        $this->assertTrue($response instanceof RuleList, 'response is instance of RuleList');
+
+        $rules = $response->getRules();
+        $this->assertTrue($rules[0] instanceof Rule, 'first rule is an instance of Rule');
     }
 
     public function testDelete() {
