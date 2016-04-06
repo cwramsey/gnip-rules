@@ -1,0 +1,21 @@
+{
+    "name": "cwramsey/gnip-rules",
+    "authors": [
+        {
+            "name": "chrisramsey",
+            "email": "chris@helpsocial.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.3",
+        "sp4ceb4r/better-ini": "^0.1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Gnip\\": "src/"
+        }
+    }
+}
