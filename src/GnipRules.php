@@ -81,14 +81,9 @@ class GnipRules
      * @param array $rules
      *
      * @return RuleList
-     * @throws InvalidRuleFormatException
      */
     public function delete(array $rules)
     {
-        if (!RuleList::validateRawRuleFormat($rules)) {
-            throw new InvalidRuleFormatException();
-        }
-
         $client = new Client();
         $client->delete($this->api_url, [
             'auth'           => $this->auth,
