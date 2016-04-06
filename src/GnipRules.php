@@ -6,8 +6,6 @@ use Gnip\Models\RuleList;
 use Gnip\Exceptions\InvalidRuleFormatException;
 use GuzzleHttp\Client;
 
-require_once(__DIR__ . '/../vendor/autoload.php');
-
 class GnipRules
 {
     const MAX_RULES = 5000;
